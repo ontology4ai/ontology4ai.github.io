@@ -52,6 +52,7 @@
                                     <el-dropdown-menu>
                                         <el-dropdown-item command="ontology">自智网络本体</el-dropdown-item>
                                         <el-dropdown-item command="odlm">数据治理本体</el-dropdown-item>
+                                        <el-dropdown-item command="customer">客户关系管理本体</el-dropdown-item>
                                     </el-dropdown-menu>
                                 </template>
                             </el-dropdown>
@@ -84,6 +85,12 @@
                                     @click="goToSection('resource')">
                                     数据治理本体
                                 </el-button>
+                                <el-button
+                                    round
+                                    class="home-btn"
+                                    @click="goToSection('customer')">
+                                    客户关系管理本体
+                                </el-button>
                             </div>
                         </div>
                         <div
@@ -102,7 +109,7 @@
                         </div>
                         <div
                             class="resource-descr">
-                            面向AI的本体开源库包括自智网络本体、数据治理本体两大本体库，优先开源物联网投诉工单本体、数据血缘本体，通过共享协作生态，赋能通信、能源、政务、交通等七大领域，形成“感知-决策-执行-优化”的闭环，实现数据驱动的精准决策，推动企业从流程自动化向智能决策升级。
+                            面向AI的本体开源库包括自智网络本体、数据治理本体、客户关系管理本体三大本体库，优先开源物联网投诉工单本体、数据血缘本体、客户服务本体，通过共享协作生态，赋能通信、能源、政务、交通等七大领域，形成“感知-决策-执行-优化”的闭环，实现数据驱动的精准决策，推动企业从流程自动化向智能决策升级。
                         </div>
 
                         <div
@@ -276,6 +283,51 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div
+                                    :style="{
+                                        width: 'calc(100%)'
+                                    }">
+                                    <div
+                                        :style="{
+                                            height: '40px',
+                                            lineHeight: '40px',
+                                            color: '#fff',
+                                            background: '#137BD2',
+                                            textAlign: 'center',
+                                            fontWeight: 600
+                                        }">
+                                        客户关系管理本体
+                                    </div>
+                                    <div
+                                        :style="{
+                                            display: 'flex',
+                                            columnGap: '12px',
+                                            flexWrap: 'wrap',
+                                            marginTop: '12px'
+                                        }">
+                                        <div
+                                            v-for="item in [
+                                                { text: '客户服务本体' , active: true },
+                                                { text: '产品营销本体' },
+                                                { text: '销售管理本体' },
+                                                { text: '客户管理本体' }
+                                            ]"
+                                            :key="item.text"
+                                            :style="{
+                                                width: 'calc((100% - 36px) / 4)',
+                                                height: '62px',
+                                                lineHeight: '62px',
+                                                background: item.active ? '#fff' : '#DEEEFE',
+                                                textAlign: 'center',
+                                                marginBottom: '10px',
+                                                color: item.active ? '#137BD2' : '#021320',
+                                                border: item.active ? '1px solid #137BD2' : '0px',
+                                                boxShadow: item.active ? '0px 0px 6px rgba(75, 170, 126, 0.6)' : 'none'
+                                            }">
+                                            {{item.text}}
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div
@@ -337,6 +389,40 @@
                                             class="home-btn"
                                             round
                                             @click="goTo('https://github.com/asiainfo/ODLM-Ontology/issues')">
+                                            新建问题
+                                        </el-button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            id="customer"
+                            class="card-group">
+                            <div
+                                class="card">
+                                <img src="./imgs/resource-icon-1.png"/>
+                                <div
+                                    class="card-content">
+                                    <div class="card-label">
+                                        客户关系管理本体
+                                    </div>
+                                    <div class="card-name">
+                                        Customer Relationship Management Ontology
+                                    </div>
+                                    <div class="card-descr">
+                                        客户关系管理本体（Customer Relationship Management Ontology，CRM Ontology）是一种基于本体论的标准化语义模型，专为客户关系管理领域提供端到端的客户业务管理统一框架。通过结构化定义客户实体、交互行为、决策链关系、价值指标、服务流程等核心要素，形成可动态更新的知识体系，将分散的客户信息转化为可计算、可推理的知识网络，最终实现客户关系的精准化运营与企业收益的持续优化。
+                                    </div>
+                                    <div class="card-btn">
+                                        <el-button
+                                            class="home-btn"
+                                            round
+                                            @click="goTo('https://github.com/asiainfo/CRM-Ontology/blob/main/README.md')">
+                                            查看OWL
+                                        </el-button>
+                                        <el-button
+                                            class="home-btn"
+                                            round
+                                            @click="goTo('https://github.com/asiainfo/CRM-Ontology/issues')">
                                             新建问题
                                         </el-button>
                                     </div>
@@ -547,8 +633,11 @@
                 const handleGithubCommand = (command) => {
                     if (command === 'odlm') {
                         window.open('https://github.com/asiainfo/ODLM-Ontology');
-                    } else {
+                    } else if (command === 'ontology') {
                         window.open('https://github.com/asiainfo/AN-Ontology');
+                    } else {
+                        // 客户关系管理本体 github地址
+                        window.open('https://github.com/asiainfo/CRM-Ontology');
                     }
                 }
                 const scrollToTarget = (targetId) => {
