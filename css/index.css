@@ -128,7 +128,7 @@ p {
 }
 .banner > .content {
     display: flex;
-    column-gap: 58px;
+    column-gap: 12px;
 }
 .banner > .content .pos-left {
     flex:  1;
@@ -149,6 +149,12 @@ p {
     line-height: 30px;
     margin-bottom: 40px;
 }
+.banner > .content .pos-left .btn-group {
+    display: flex;
+}
+.banner > .content .pos-left .btn-group .el-button+.el-button {
+    margin-left: 10px;
+}
 /*.banner > .content .pos-left .btn-group button {
     width: 164px;
     height: 48px;
@@ -167,7 +173,7 @@ p {
 }
 button.home-btn.is-round {
     height: 48px;
-    padding: 12px 20px;
+    padding: 12px 12px;
     background: #F09324;
     font-size: 18px;
     color: #fff;
@@ -222,15 +228,23 @@ button.home-btn.is-round {
     z-index: 10;
 }
 .resource > .content > .card-group {
-    height: 810px;
+    height: max-content;
+    padding-bottom: 100px;
     display: flex;
     column-gap: 24px;
     padding-top: 100px;
+    flex-wrap: wrap;
 }
 .resource > .content .card {
     width: calc(50% - 12px);
     padding-top: 113px;
     position: relative;
+}
+.resource > .content > #customer {
+    padding-top: 20px;
+}
+.resource > .content > #customer .card:nth-child(1) {
+    margin: 0px auto;
 }
 .resource > .content .card > img {
     width: 170px;
@@ -260,7 +274,7 @@ button.home-btn.is-round {
     font-size: 16px;
     font-weight: 400;
     line-height: 30px;
-    margin-bottom: 32px;
+    margin-bottom: 20px;
 }
 .resource > .content .card .card-content .card-descr {
     color: rgba(0, 0, 0, 0.50);
